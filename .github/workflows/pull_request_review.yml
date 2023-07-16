@@ -1,5 +1,7 @@
 name: AI Code Reviewer
 
+run-name: Providing AI analysis for code pushed by ${{ github.actor }}
+
 on:
   pull_request:
     types: [opened, reopened, synchronize]
