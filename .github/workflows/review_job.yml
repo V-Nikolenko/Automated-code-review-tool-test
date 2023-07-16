@@ -6,8 +6,6 @@ permissions:
 
 on:
   workflow_call:
-  pull_request:
-    types: [ opened, reopened, synchronize ]
 
 jobs:
   review:
