@@ -1,0 +1,10 @@
+name: Java GitHub CI
+run-name: ${{ github.actor }} pushed a new code
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: ./build_job.yml
