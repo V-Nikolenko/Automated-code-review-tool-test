@@ -1,19 +1,22 @@
-#name: Java GitHub CI
-#
-#run-name: ${{ github.actor }} pushed a new code
-#
-#permissions: write-all
-#
-#on:
-#  push:
-#    branches:
-#      - main
-#
-#jobs:
-#  build:
-#    name: Build application
-#    uses: ./.github/workflows/build_job.yml
-#
-#  review:
-#    name: Code review
-#    uses: ./.github/workflows/review_job.yml
+name: Java GitHub CI
+
+run-name: ${{ github.actor }} pushed a new code
+
+permissions: write-all
+
+on:
+  push:
+
+jobs:
+  build:
+    name: Build application
+    uses: ./.github/workflows/build_job.yml
+
+  test:
+    name: Test application
+    uses: ./.github/workflows/run_tests_job.yml
+
+  checkstype:
+    name: Check application style
+    uses: ./.github/workflows/checkstyle_job.yml
+
