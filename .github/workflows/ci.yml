@@ -13,6 +13,7 @@ jobs:
     uses: ./.github/workflows/build_job.yml
 
   test:
+    needs: build
     name: Test application
     uses: ./.github/workflows/run_tests_job.yml
 
