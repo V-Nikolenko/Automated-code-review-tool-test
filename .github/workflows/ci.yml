@@ -9,3 +9,7 @@ jobs:
   build:
     name: Build application
     uses: ./.github/workflows/build_job.yml
+
+  review:
+    name: Code review
+    uses: ./.github/workflows/review_job.yml
