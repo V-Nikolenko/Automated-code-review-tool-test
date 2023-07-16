@@ -7,4 +7,5 @@ on:
 
 jobs:
   build:
+    name: Build application
     uses: ./.github/workflows/build_job.yml
