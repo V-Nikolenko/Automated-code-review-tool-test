@@ -1,0 +1,13 @@
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'checkstyle'
+
+    group = 'org.geekhub'
+
+    idea {
+        module {
+            sourceDirs += file('src/main/java')
+        }
+    }
+}
