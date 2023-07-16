@@ -2,8 +2,7 @@ name: Java GitHub CI
 
 run-name: ${{ github.actor }} pushed a new code
 
-permissions:
-  actions: write
+permissions: write-all
 
 on:
   push:
