@@ -5,18 +5,20 @@ permissions:
   pull-requests: write
 
 on:
+  workflow_call:
   pull_request:
     types: [ opened, reopened, synchronize ]
 
-review:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v3
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
 
-    - name: AI Code Reviewer
-      uses: freeedcom/ai-codereviewer@v2.4.1
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        exclude: "**/*.json, **/*.md"
+      - name: AI Code Reviewer
+        uses: freeedcom/ai-codereviewer@v2.4.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          exclude: "**/*.json, **/*.md"
