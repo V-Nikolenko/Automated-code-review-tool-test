@@ -5,6 +5,10 @@ allprojects {
 
     group = 'org.geekhub'
 
+    repositories {
+        mavenCentral()
+    }
+
     idea {
         module {
             sourceDirs += file('src/main/java')
