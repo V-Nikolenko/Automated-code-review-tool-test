@@ -1,0 +1,24 @@
+name: AI Code Reviewer
+
+run-name: Providing AI analysis for code pushed by ${{ github.actor }}
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions: write-all
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: AI Code Review
+        uses: lfsevergnini/ai-codereviewer@chore/add-model-version-parameter
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_MODEL: "gpt-3.5-turbo"
+          exclude: ".github/workflows/*, **/*.json, **/*.md, **/*.yml, **/*.yaml, **/*.js, **/*.html, **/*.xml, **/*.properties"
